@@ -13,4 +13,11 @@ class StringHeadToTailTest {
         Assertions.assertThat(stringHeadToTail.solution(input)).isTrue();
     }
 
+    @Test
+    void test2() {
+        StringHeadToTail stringHeadToTail = new StringHeadToTail();
+        String[] input = {"tank", "kick", "know", "wheel", "land", "dream", "mother", "robot", "tank"};
+        Assertions.assertThat(stringHeadToTail.solution(input)).isFalse();
+    }
+
 }
