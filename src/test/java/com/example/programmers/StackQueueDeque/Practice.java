@@ -27,6 +27,9 @@ public class Practice {
         queue.offer(3);
         queue.poll(); //비어 잇다면 null 반환
         queue.peek();       // queue의 첫번째 값 참조
+        queue.peek();
+        queue.peek();
+        System.out.println(queue);
     }
     
     @Test
