@@ -5,13 +5,13 @@ import java.util.Set;
 
 public class LottoGenerator {
     public boolean solution(int[] lotto) {
-        Set<Integer> lottoSet = new HashSet<>();
-        for(int l : lotto) {
-            lottoSet.add(l);
+        Set<Integer> set = new HashSet<>();
+        for (int l : lotto) {
+            if (l >= 1 && l <= 45) {
+                set.add(l);
+            }
         }
-        if (lottoSet.size() == 6) {
-            return true;
-        }
+        if (set.size() == 6) return true;
         return false;
     }
 }
