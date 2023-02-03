@@ -2,7 +2,7 @@ package com.example.zerobase.assignment.week1.surpriseQuiz.quiz1;
 
 import java.util.Scanner;
 
-public class TaskMenu {
+public class SignUpMenuMain {
     public static void main(String[] args) {
         while(true) {
             showMenu();
