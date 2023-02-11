@@ -140,5 +140,33 @@ class StringExTest {
         System.out.println("joined = " + joined);
     }
 
+    @Test
+    void 배열을_문자열로_출력() {
+        String str = "a b c d";
+        String[] arr = str.split(" ");
+
+        // 1. 반복문
+        for (String s : arr) {
+            System.out.println("s = " + s);
+        }
+
+        // 2. Arrays.toString()
+        System.out.println(Arrays.toString(arr));
+    }
+
+
+    @Test
+    void 공백있는_문자열_자르고_붙히기() {
+        String str = "a   b";
+        String[] arr = str.split(" ");
+        System.out.println(Arrays.toString(arr));
+
+        String joinedStr = String.join(" ", arr);
+
+        System.out.println(joinedStr);
+        System.out.println(str.equals(joinedStr));
+    }
+
+
 }
 
