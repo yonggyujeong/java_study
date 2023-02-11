@@ -2,10 +2,7 @@ package com.example.java_study.sort;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -57,4 +54,26 @@ class SortExTest {
         System.out.println(list);
                 
     }
+
+    @Test
+    void compare() {
+        String s1 = "abcde";
+        String s2 = "qwert";
+
+        String[] strings = {s1, s2};
+        List<String> list = Arrays.asList(strings);
+
+        list.sort((o1, o2) -> {
+            char c1 = o1.charAt(2);
+            char c2 = o2.charAt(2);
+            if (c1 == c2) {
+                return o1.compareTo(o2);
+            }
+            return c1 - c2;
+        });
+
+        System.out.println(list);
+    }
+
+
 }

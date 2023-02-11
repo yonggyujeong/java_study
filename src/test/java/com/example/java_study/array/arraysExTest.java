@@ -28,8 +28,23 @@ class arraysExTest {
     void stringArrayToList() {
         String[] arr = new String[]{"a", "b", "c"};
         List<String> strings = Arrays.asList(arr);
+    }
 
+    @Test
+    void listToStringArray() {
+        String[] arr = new String[]{"a", "b", "c"};
+        List<String> list = Arrays.asList(arr);
+
+
+        // stream().toArray()의 결과는 Object[]
+        //Object[] objects = list.stream().toArray();
+
+        //Object[] objects = list.toArray();
+
+        // 옳은 방법
+        String[] strings = list.toArray(new String[list.size()]);
 
     }
+
 
 }

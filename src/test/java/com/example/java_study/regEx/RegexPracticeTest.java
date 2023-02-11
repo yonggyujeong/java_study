@@ -49,4 +49,19 @@ class RegexPracticeTest {
         }
     }
 
+    @Test
+    void 숫자인지_판별하기() {
+        //
+        String numberOnly = "0123456";
+        String notNumberOnly = "a012345";
+
+        String numberOnlyRegex = "[0-9]+";
+
+        boolean isNumberOnly = numberOnly.matches(numberOnlyRegex);
+        boolean isNotNumberOnly = notNumberOnly.matches(numberOnlyRegex);
+
+        System.out.println("isNumberOnly = " + isNumberOnly);
+        System.out.println("isNotNumberOnly = " + isNotNumberOnly);
+    }
+
 }
