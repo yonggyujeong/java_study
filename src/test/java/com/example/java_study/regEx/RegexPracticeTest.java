@@ -64,4 +64,19 @@ class RegexPracticeTest {
         System.out.println("isNotNumberOnly = " + isNotNumberOnly);
     }
 
+    @Test
+    void 영어인지_판별하기() {
+        //
+        String englishOnly = "aeawfwe";
+        String notEnglishOnly = "aawef33";
+
+        String englishOnlyRegex = "[a-zA-z]+";
+
+        boolean isEnglishOnly = englishOnly.matches(englishOnlyRegex);
+        boolean isNotEnglishOnly = notEnglishOnly.matches(englishOnlyRegex);
+
+        System.out.println("isEnglishOnly = " + isEnglishOnly);
+        System.out.println("isNotEnglishOnly = " + isNotEnglishOnly);
+    }
+
 }
