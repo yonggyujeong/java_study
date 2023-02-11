@@ -2,6 +2,7 @@ package com.example.java_study.string;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -123,6 +124,20 @@ class StringExTest {
         System.out.println(txt.indexOf("1"));
 
         txt.indexOf('1');
+    }
+
+    @Test
+    void 대문자변환() {
+        String str = "asdf";
+        str = str.toUpperCase();    // 원래 문자는 변환시키지 않고 변환된 문자를 반환함
+        System.out.println(str);
+    }
+
+    @Test
+    void join_함수() {
+        String[] arr = {"ddd", "fff", "aaa"};
+        String joined = String.join(" ", arr);
+        System.out.println("joined = " + joined);
     }
 
 }
