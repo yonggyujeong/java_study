@@ -141,6 +141,13 @@ class StringExTest {
     }
 
     @Test
+    void split_test() {
+        String str = "a b c d";
+        String[] arr = str.split(" ");
+    }
+
+
+    @Test
     void 배열을_문자열로_출력() {
         String str = "a b c d";
         String[] arr = str.split(" ");
@@ -152,12 +159,18 @@ class StringExTest {
 
         // 2. Arrays.toString()
         System.out.println(Arrays.toString(arr));
+        // [a, b, c, d]
+
+        // 3. String.join()
+        String joinedStr = String.join(", ", arr);
+        System.out.println(joinedStr);
+        // a, b, c, d
     }
 
 
     @Test
     void 공백있는_문자열_자르고_붙히기() {
-        String str = "a   b";
+        String str = "a   b   ";
         String[] arr = str.split(" ");
         System.out.println(Arrays.toString(arr));
 
@@ -167,6 +180,24 @@ class StringExTest {
         System.out.println(str.equals(joinedStr));
     }
 
+    @Test
+    void 공백있는_문자열_자르고_붙히기_공백까지_나누기() {
+        String str = "a   b   ";
+        String[] arr = str.split("");
+        System.out.println(Arrays.toString(arr));
+
+        String joinedStr = String.join("", arr);
+
+        System.out.println(joinedStr);
+        System.out.println(str.equals(joinedStr));
+    }
+
+    @Test
+    void 한글자_문자_substring() {
+        String str = " ";
+        String substring = str.substring(0, 1);
+        System.out.println("substring = " + substring);
+    }
 
 }
 

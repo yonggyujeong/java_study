@@ -13,20 +13,39 @@ class SortExTest {
 
     }
 
+    @Test
+    void 배열_정렬() {
+        int[] arr = {3, 2, 1, 5, 4};
+
+        // 1. 오름차순
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        // [1, 2, 3, 4, 5]
+
+        // 2. 내림차순
+        // 내림차순 정렬의 경우 int[]를 Integer[]로 변환 후 정렬해야 한다.
+        Integer[] arr2 = Arrays.stream(arr).boxed().toArray(Integer[] :: new);
+        // 방법 1
+        Arrays.sort(arr2, Collections.reverseOrder());
+        // 방법 2
+        Arrays.sort(arr2, (o1, o2) -> o2 - o1);
+        System.out.println(Arrays.toString(arr2));
+        // [5, 4, 3, 2, 1]
+
+    }
+
 
     @Test
-    void sortTest() {
-        Random random = new Random();
-        List<Integer> list = new LinkedList<>();
-        for(int i= 0; i < 30; i++) {
-            list.add(random.nextInt(30));
-        }
+    void 리스트_정렬() {
+        List<Integer> list = Arrays.asList(3, 2, 1, 4, 5);
 
         list.sort(Comparator.naturalOrder());
         System.out.println(list);
+        // [1, 2, 3, 4, 5]
 
         list.sort(Comparator.reverseOrder());
         System.out.println(list);
+        // [5, 4, 3, 2, 1]
 
         list.sort(new Comparator<Integer>() {
             @Override
@@ -52,7 +71,7 @@ class SortExTest {
         list.sort((o1, o2) -> o1.compareTo(o2));
 
         System.out.println(list);
-                
+        // [1, 2, 3, 4, 5]
     }
 
     @Test
