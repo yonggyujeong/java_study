@@ -2,6 +2,7 @@ package com.example.java_study.array;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -43,6 +44,10 @@ class arraysExTest {
 
         // 옳은 방법
         String[] strings = list.toArray(new String[list.size()]);
+
+
+        List<Integer> list3 = List.of(1,2,3,4,5);
+
 
     }
 
