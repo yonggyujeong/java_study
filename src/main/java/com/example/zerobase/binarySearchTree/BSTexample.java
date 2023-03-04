@@ -1,12 +1,17 @@
 package com.example.zerobase.binarySearchTree;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 class Node {
     public int key;
     public Node left;
     public Node right;
 
-    Node(int key) {
+    Node(int key, Node left, Node right) {
         this.key = key;
+        this.left = left;
+        this.right = right;
     }
 }
 
@@ -14,23 +19,24 @@ class BinarySearchTree {
     Node head;  // 루트
 
     BinarySearchTree(int key) {
-        head = new Node(key);
+        head = new Node(key, null, null);   // null 넣어줘야함
     }
 
     public void addNode(int key) {
         if (head == null) {
-            this.head = new Node(key);
+            this.head = new Node(key, null, null);
         }
         else {
             Node cur = this.head;
 
-            Node pre = cur;
             while(true) {
-                if (key < cur.key) {
+                Node pre = cur;
 
+                if (key < cur.key) {
                     cur = cur.left;     // 왼쪽 이동
+
                     if (cur == null) {          // 값 할당
-                        pre.left = new Node(key);
+                        pre.left = new Node(key, null, null);
                         break;
                     }
                 }
@@ -38,7 +44,7 @@ class BinarySearchTree {
                     cur = cur.right;    // 오른쪽 이동
 
                     if (cur == null) {
-                        pre.right = new Node(key);
+                        pre.right = new Node(key, null, null);
                         break;
                     }
                 }
@@ -127,11 +133,49 @@ class BinarySearchTree {
 
         }
     }
+
+    public void inOrder(Node node) {
+        if (node == null) {
+            return;
+        }
+        inOrder(node.left);
+        System.out.print(node.key + " ");
+        inOrder(node.right);
+    }
+
+    public void levelOrder(Node node) {
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(node);
+        while(!queue.isEmpty()) {
+            Node cur = queue.poll();
+
+            System.out.print(cur.key + " ");
+            if (cur.left != null) {
+                queue.offer(cur.left);
+            }
+
+            if (cur.right != null) {
+                queue.offer(cur.right);
+            }
+        }
+        System.out.println();
+    }
 }
 
 public class BSTexample {
 
     public static void main(String[] args) {
-
+        BinarySearchTree bst = new BinarySearchTree(20);
+        bst.addNode(10);
+        bst.addNode(30);
+        bst.addNode(1);
+        bst.addNode(15);
+        bst.addNode(25);
+        bst.addNode(13);
+        bst.addNode(35);
+        bst.addNode(27);
+        bst.addNode(40);
+        bst.levelOrder(bst.head);
+        bst.inOrder(bst.head);
     }
 }
