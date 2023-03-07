@@ -55,12 +55,56 @@ public class TrieSample {
             }
             return true;
         }
+
+        public void delete(String str) {
+            boolean ret = this.delete(this.root, str, 0);
+            if (ret) {
+                System.out.println(str + " 삭제 완료");
+            }
+            else {
+                System.out.println("단어가 없습니다");
+            }
+        }
+
+        public boolean delete(Node node, String str, int idx) {
+            char c = str.charAt(idx);
+
+            if (!node.child.containsKey(c)) {
+                return false;
+            }
+
+            Node cur = node.child.get(c);
+            idx ++;
+
+            if (idx == str.length()) {
+                if (!cur.isTerminal) {
+                    return false;
+                }
+
+                cur.isTerminal = false;
+
+                if (cur.child.isEmpty()) {
+                    node.child.remove(c);
+                }
+            } else  {
+                if (!this.delete(cur, str, idx)) {
+                    return false;
+                }
+
+                if (!cur.isTerminal && cur.child.isEmpty()) {
+                    node.child.remove(c);
+                }
+            }
+            return true;
+        }
     }
+
+
 
     public static void main(String[] args) {
         Trie trie = new Trie();
         trie.insert("apple");
-        trie.insert("app");
+        //trie.insert("app");
         trie.insert("april");
         trie.insert("ace");
         trie.insert("bear");
@@ -75,5 +119,10 @@ public class TrieSample {
         System.out.println(trie.search("bat"));
         System.out.println(trie.search("appot"));
         System.out.println(trie.search("ftk"));
+
+        System.out.println();
+
+        trie.delete("apple");
+        System.out.println(trie.search("apple"));
     }
 }
