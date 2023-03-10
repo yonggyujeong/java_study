@@ -15,7 +15,9 @@ class streamTestTest {
         Set<Integer> set = new HashSet<>();
 
         int[] ints = set.stream().mapToInt(Integer::intValue).toArray();
-        
+
+        int[] arr = new int[] {};
+
     }
 
 }
