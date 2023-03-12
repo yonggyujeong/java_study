@@ -29,5 +29,15 @@ public class PriorityQueueTest {
 
         System.out.println(priorityQueueMax);
         // [10, 7, 5, 1, 4]
+
+        // 맥스 힙 람다로 구현
+        PriorityQueue<Integer> pqL = new PriorityQueue<>((o1, o2) -> o2 - o1);
+        pqL.offer(10);
+        pqL.offer(4);
+        pqL.offer(5);
+        pqL.offer(1);
+        pqL.offer(7);
+
+        System.out.println(pqL);
     }
 }
